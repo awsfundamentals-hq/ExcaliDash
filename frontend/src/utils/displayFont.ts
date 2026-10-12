@@ -21,7 +21,7 @@ const quoteFontFamily = (family: string): string => {
 
 export const configureDisplayFont = (): void => {
   const family = (
-    import.meta.env.VITE_EXCALIDASH_UI_FONT_FAMILY || "Excalifont"
+    import.meta.env.VITE_EXCALIDASH_UI_FONT_FAMILY || "Cabinet Grotesk"
   ).trim();
   const fontUrl = (import.meta.env.VITE_EXCALIDASH_UI_FONT_URL || "").trim();
 

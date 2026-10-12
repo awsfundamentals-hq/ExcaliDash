@@ -1,7 +1,7 @@
 import React from "react";
 import type { DrawingSnapshotFull } from "../../api";
 import { HistoryPreviewCanvas } from "./HistoryPreviewCanvas";
-import { Excalidraw, MainMenu } from "@excalidraw/excalidraw";
+import { Excalidraw, MainMenu, WelcomeScreen } from "@excalidraw/excalidraw";
 import {
   ArrowLeft,
   ChevronDown,
@@ -20,6 +20,7 @@ import { ShareModal } from "../../components/ShareModal";
 import { UserAvatar as ProfileAvatar } from "../../components/UserAvatar";
 import type { UserIdentity } from "../../utils/identity";
 import { UIOptions, validateEmbeddableUrl } from "./shared";
+import { EditorWelcome, LightsailMenuItem } from "./EditorBranding";
 
 interface Peer extends UserIdentity {
   isActive: boolean;
@@ -342,7 +343,12 @@ export const EditorView: React.FC<EditorViewProps> = ({
             <MainMenu.ItemCustom>
               <LanguageSelector langCode={langCode} onChange={onSetLangCode} />
             </MainMenu.ItemCustom>
+            <MainMenu.Separator />
+            <LightsailMenuItem />
           </MainMenu>
+          <WelcomeScreen>
+            <EditorWelcome />
+          </WelcomeScreen>
         </Excalidraw>
       ) : (
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-gray-500 dark:text-gray-400">

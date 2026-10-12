@@ -31,6 +31,7 @@ vi.mock("@excalidraw/excalidraw", () => {
     MainMenu: Object.assign(Item, {
       Item,
       ItemCustom: Item,
+      ItemLink: Item,
       Separator: () => null,
       DefaultItems: {
         SaveAsImage: () => null,
@@ -39,6 +40,7 @@ vi.mock("@excalidraw/excalidraw", () => {
         Help: () => null,
       },
     }),
+    WelcomeScreen: () => null,
     exportToSvg: vi.fn(async () => ({ outerHTML: "<svg />" })),
   };
 });

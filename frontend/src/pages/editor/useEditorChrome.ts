@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import throttle from "lodash/throttle";
+import { documentTitle } from "../../brand";
 
 type UseEditorChromeOptions = {
   drawingName: string;
@@ -17,9 +18,9 @@ export const useEditorChrome = ({
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
 
   useEffect(() => {
-    document.title = `${drawingName} - ExcaliDash`;
+    document.title = documentTitle(drawingName);
     return () => {
-      document.title = "ExcaliDash";
+      document.title = documentTitle();
     };
   }, [drawingName]);
 

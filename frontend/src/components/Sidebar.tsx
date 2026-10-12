@@ -11,9 +11,9 @@ import type { Collection } from "../types";
 import clsx from "clsx";
 import { ConfirmModal } from "./ConfirmModal";
 import { ShareCollectionModal } from "./ShareCollectionModal";
-import { Logo } from "./Logo";
+import { BrandMark } from "./BrandMark";
+import { LightsailBadge } from "./LightsailBadge";
 import { useAuth } from "../context/AuthContext";
-import { displayFontFamily } from "../utils/displayFont";
 import { SidebarItem } from "./sidebar/SidebarItem";
 import { SidebarFooter } from "./sidebar/SidebarFooter";
 import {
@@ -90,15 +90,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
     <>
       <div className="w-full flex flex-col h-full bg-transparent">
         <div className="p-4 sm:p-5 pb-2">
-          <h1
-            className="text-2xl text-slate-900 dark:text-white flex items-center gap-3 tracking-tight"
-            style={{ fontFamily: displayFontFamily }}
-          >
-            <Logo className="w-10 h-10" />
-            <span className="mt-1">ExcaliDash</span>
-            <span className="mt-2 font-sans text-xs font-bold text-red-500">
-              Beta
-            </span>
+          <h1>
+            <BrandMark />
           </h1>
         </div>
         <nav
@@ -250,6 +243,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
               ))}
           </div>
         </nav>
+        <div className="px-5 pb-3 pt-2">
+          <LightsailBadge />
+        </div>
         <SidebarFooter
           selectedCollectionId={selectedCollectionId}
           authEnabled={authEnabled}

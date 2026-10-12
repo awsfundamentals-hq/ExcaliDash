@@ -9,6 +9,7 @@ import { displayFontFamily } from "../utils/displayFont";
 import { PasswordCard } from "./profile/PasswordCard";
 import { getApiErrorMessage } from "../utils/getApiErrorMessage";
 import { UserAvatar } from "../components/UserAvatar";
+import { APP_NAME } from "../brand";
 import {
   SettingsCard,
   settingsButtonClass,
@@ -197,7 +198,7 @@ export const Profile: React.FC = () => {
                     Password reset required
                   </p>
                   <p className="text-xs text-amber-800 dark:text-amber-200/80 font-medium mt-0.5">
-                    Change your password below before using ExcaliDash.
+                    Change your password below before using {APP_NAME}.
                   </p>
                 </div>
               )}

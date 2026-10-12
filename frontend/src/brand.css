@@ -1,0 +1,85 @@
+/* Upstream draws a hand-sketched look (hard offset shadows, dark outlines) with
+   arbitrary Tailwind values spread over many components. The AWS Fundamentals
+   look is softer. Overriding it here instead of in each component keeps the
+   fork rebasable on upstream releases. The `:root` prefix ties these rules
+   with the upstream `.dark .x` variants, so they win only because main.tsx
+   imports this file after index.css. */
+
+:root {
+  --excalidash-ink: #0f172a;
+  --excalidash-muted: #64748b;
+  --excalidash-brand: #ff9900;
+  --excalidash-radius: 0.5rem;
+  --excalidash-shadow: var(--awsf-shadow);
+  --awsf-shadow: 0 1px 2px rgb(15 23 42 / 0.06), 0 2px 6px rgb(15 23 42 / 0.08);
+  --awsf-accent: #ff9900;
+  --awsf-accent-hover: #ffad33;
+}
+
+:root.dark {
+  --excalidash-ink: #e2e8f0;
+  --excalidash-muted: #94a3b8;
+  --awsf-shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 6px 16px rgb(0 0 0 / 0.3);
+}
+
+:root
+  :is(
+    [class*="px_0px_0px_rgba("],
+    .ui-card,
+    .auth-panel,
+    .ui-button-primary,
+    .ui-button-secondary,
+    .ui-button-success,
+    .ui-button-danger,
+    .ui-icon-button,
+    .ui-menu,
+    .playful-avatar
+  ):not(.shadow-none):not(:active):not(:disabled) {
+  --tw-shadow: var(--awsf-shadow);
+  --tw-shadow-colored: var(--awsf-shadow);
+}
+
+:root:not(.dark)
+  :is(
+    .border-slate-800,
+    .border-black,
+    .ui-card,
+    .auth-panel,
+    .ui-button-secondary,
+    .ui-icon-button,
+    .ui-menu,
+    .playful-avatar
+  ):not(.border-transparent) {
+  border-color: #e2e8f0;
+}
+
+:root :is(.ui-button-success, .ui-button-danger) {
+  border-color: transparent;
+}
+
+:root :is(.ui-button-primary, .bg-indigo-600) {
+  border-color: transparent;
+  background-color: var(--awsf-accent);
+  color: #020617;
+}
+
+:root :is(.ui-button-primary, .bg-indigo-600):not(:disabled):hover {
+  background-color: var(--awsf-accent-hover);
+}
+
+:root :is(button, [role="button"], input, select, textarea):focus-visible {
+  outline-color: #b45f00;
+}
+
+:root.dark :is(button, [role="button"], input, select, textarea):focus-visible {
+  outline-color: var(--awsf-accent);
+}
+
+::selection {
+  background-color: rgb(255 153 0 / 0.3);
+}
+
+html.dark body {
+  background-color: #020617 !important;
+  background-image: radial-gradient(#1e293b 1px, transparent 1px);
+}

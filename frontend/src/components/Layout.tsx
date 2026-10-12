@@ -2,13 +2,12 @@ import React, { useState, useRef, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Sidebar } from "./Sidebar";
-import { Logo } from "./Logo";
+import { BrandMark } from "./BrandMark";
 import { UploadStatus } from "./UploadStatus";
 import { ImpersonationBanner } from "./ImpersonationBanner";
 import { UpdateBanner } from "./UpdateBanner";
 import type { Collection } from "../types";
 import clsx from "clsx";
-import { displayFontFamily } from "../utils/displayFont";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -135,17 +134,8 @@ export const Layout: React.FC<LayoutProps> = ({
                 {isSidebarOpen ? <X size={20} /> : <Menu size={20} />}
               </button>
 
-              <div className="ml-auto flex items-center gap-2">
-                <Logo className="w-8 h-8" />
-                <span
-                  className="text-xl text-slate-900 dark:text-white mt-1"
-                  style={{ fontFamily: displayFontFamily }}
-                >
-                  ExcaliDash
-                </span>
-                <span className="mt-2 text-[10px] font-bold text-red-500">
-                  Beta
-                </span>
+              <div className="ml-auto">
+                <BrandMark compact />
               </div>
             </div>
 
