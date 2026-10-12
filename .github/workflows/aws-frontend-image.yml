@@ -1,8 +1,8 @@
-name: AWS Fundamentals frontend image
+name: AWS Fundamentals Draw frontend image
 
 on:
   push:
-    tags: ["*-libsearch.*"]
+    tags: ["*-awsf.*"]
   workflow_dispatch:
 
 permissions:
